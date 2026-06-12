@@ -17,17 +17,20 @@ def read_item(item_id: int, q: Optional[str] = None):
 
 @app.get("/omikuji")
 def omikuji():
-    omikuji_list = [
-        "大吉",
-        "中吉",
-        "小吉",
-        "吉",
-        "半吉",
-        "末吉",
-        "末小吉",
-        "凶",
-        "小凶",
-        "大凶"
+    {
+        
+        omikuji_json = [
+        {"luck": "大吉", "description": "大吉！素晴らしい幸運が舞い込むでしょう。"},
+        {"luck": "中吉", "description": "中吉！努力が実を結び、良い結果が待っています。"},
+        {"luck": "小吉", "description": "小吉！ちょっとした幸運があなたの元にやってきます。"},
+        {"luck": "吉", "description": "吉！安定した幸せな日々が続くでしょう。"},
+        {"luck": "半吉", "description": "なんだこれ"},
+        {"luck": "末吉", "description": "末吉！努力が実り始め、良い方向に進む時期です。"},
+        {"luck": "末小吉", "description": "良くはない"},
+        {"luck": "凶", "description": "凶。悪いことが起こるかもしれませんが、気を引き締めてください。"},
+        {"luck": "小凶", "description": "小凶。注意が必要な日です。慎重に行動しましょう。"},
+        {"luck": "大凶", "description": "大凶。厳しい状況が訪れるかもしれませんが、乗り越えましょう。"}
     ]
-
-    return omikuji_list[random.randrange(10)]
+    }
+    
+    return {"result" : omikuji_list[random.randrange(10)]}

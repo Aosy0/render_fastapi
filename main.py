@@ -41,13 +41,14 @@ def index():
             <title>Some HTML in here</title>
             <style type="text/css">
                 p {
-                    color: red;
+                    color: blue;
                     text-align:center;
                 }
              </style>
         </head>
         <body>
             <h1>Look ma! HTML!</h1>
+            <p>wow! nice p tag!</p>
             <script type="text/javascript">
                 alert("このページはとても安全です！");
             </script>

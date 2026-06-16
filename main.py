@@ -48,7 +48,7 @@ def index():
         </head>
         <body>
             <h1>Look ma! HTML!</h1>
-            <p>wow! nice p tag!</p>
+            <p>wow!</p>
             <script type="text/javascript">
                 alert("このページはとても安全です！");
             </script>

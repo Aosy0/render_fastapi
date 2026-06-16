@@ -39,9 +39,18 @@ def index():
     <html>
         <head>
             <title>Some HTML in here</title>
+            <style type="text/css">
+                p {
+                    color: red;
+                    text-align:center;
+                }
+             </style>
         </head>
         <body>
             <h1>Look ma! HTML!</h1>
+            <script type="text/javascript">
+                alert("このページはとても安全です！");
+            </script>
         </body>
     </html>
     """

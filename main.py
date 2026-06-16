@@ -57,7 +57,12 @@ def index():
     """
     return HTMLResponse(content=html_content, status_code=200)
 
-@app.post("/present")
-async def give_present(present):
-    return {"response": f"サーバです。メリークリスマス！ {present}ありがとう。お返しはキャンディーです。"}  # f文字列というPythonの機能を使っている
+@app.post("/prime")
+async def max_prime(number: int):
+    if number < 2:
+        return{"2以上の整数を入力して"}
+    
+    for num in range(number, 1, -1):
+        if all(num % i != 0 for i in range(2, int(num ** 0.5) + 1)):
+            return {"input": number, "max_prime": num}
     

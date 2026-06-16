@@ -3,6 +3,7 @@ from typing import Optional
 from fastapi import FastAPI
 
 import random  # randomライブラリを追加
+from fastapi.responses import HTMLResponse
 
 app = FastAPI()
 
@@ -17,9 +18,7 @@ def read_item(item_id: int, q: Optional[str] = None):
 
 @app.get("/omikuji")
 def omikuji():
-    {
-        
-        omikuji_json = [
+    omikuji_json = [
         {"luck": "大吉", "description": "大吉！素晴らしい幸運が舞い込むでしょう。"},
         {"luck": "中吉", "description": "中吉！努力が実を結び、良い結果が待っています。"},
         {"luck": "小吉", "description": "小吉！ちょっとした幸運があなたの元にやってきます。"},
@@ -31,6 +30,19 @@ def omikuji():
         {"luck": "小凶", "description": "小凶。注意が必要な日です。慎重に行動しましょう。"},
         {"luck": "大凶", "description": "大凶。厳しい状況が訪れるかもしれませんが、乗り越えましょう。"}
     ]
-    }
     
-    return {"result" : omikuji_list[random.randrange(10)]}
+    return {"result" : random.choice(omikuji_json)}
+
+@app.get("/index")
+def index():
+    html_content = """
+    <html>
+        <head>
+            <title>Some HTML in here</title>
+        </head>
+        <body>
+            <h1>Look ma! HTML!</h1>
+        </body>
+    </html>
+    """
+    return HTMLResponse(content=html_content, status_code=200)
